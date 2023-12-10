@@ -19,7 +19,7 @@ FragmentProduct1infoBinding fragmentProduct1infoBinding;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         fragmentProduct1infoBinding = FragmentProduct1infoBinding.inflate(inflater, container, false);
-        fragmentProduct1infoBinding.infoscreen.setVisibility(View.VISIBLE);
+        //fragmentProduct1infoBinding.infoscreen.setVisibility(View.VISIBLE);
 
         // Return the inflated view
         return fragmentProduct1infoBinding.getRoot();
