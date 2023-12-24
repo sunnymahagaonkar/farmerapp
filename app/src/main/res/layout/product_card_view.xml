@@ -1,0 +1,94 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout
+
+    android:id="@+id/linearLayout"
+    android:background="@color/green1"
+    android:layout_width="match_parent"
+    android:layout_height="190dp"
+    android:orientation="horizontal"
+    android:layout_margin="10dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="142dp"
+        android:layout_height="180dp"
+        android:src="@drawable/termarind" />
+    <LinearLayout
+
+        android:layout_width="180dp"
+        android:layout_height="170dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="15dp">
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="termarind"
+            android:layout_marginStart="2dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/baseline_currency_rupee_24"
+
+            android:layout_marginLeft="-100dp"
+            android:layout_marginTop="45dp"/>
+
+        <TextView
+            android:id="@+id/price1"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="30dp"
+            android:text="100rs"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            tools:ignore="TextSizeCheck" />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/baseline_location_on_24"
+            android:layout_marginLeft="-60dp"
+            android:layout_marginTop="83dp"/>
+
+        <TextView
+            android:id="@+id/location1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="69dp"
+            android:text="Mumbai "
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+          />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/baseline_location_on_24"
+            android:layout_marginLeft="-78dp"
+            android:layout_marginTop="120dp"/>
+
+        <TextView
+            android:id="@+id/timeper1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="105dp"
+            android:text="3 months away "
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            tools:ignore="TextSizeCheck" />
+
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>

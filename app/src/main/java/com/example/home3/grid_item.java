@@ -11,57 +11,46 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.home3.Adapters.ProductListAdapter;
 import com.example.home3.databinding.ActivityGridItemBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class grid_item extends AppCompatActivity {
 ActivityGridItemBinding binding;
    TextView textView;
    ImageView imageView;
 
+
+   List<String> productList_ = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding= ActivityGridItemBinding.inflate(getLayoutInflater());
+        binding = ActivityGridItemBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        productList_.add("kajdhf");
+        productList_.add("jhdf");
+        productList_.add("kajdhf");
+        productList_.add("jhdf");
+        productList_.add("kajdhf");
+        productList_.add("jhdf");
+        productList_.add("kajdhf");
+        productList_.add("jhdf");
+        productList_.add("kajdhf");
+        productList_.add("jhdf");
+        productList_.add("kajdhf");
+        productList_.add("jhdf");
 
-        replceFragment(new product1info());
-        binding.linearLayout.setOnClickListener(new View.OnClickListener() {
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        ProductListAdapter productListAdapter = new ProductListAdapter(productList_);
+        binding.productList.setAdapter(productListAdapter);
+        binding.productList.setLayoutManager(layoutManager);
 
-            @Override
-            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(),product1info.class);
-                Log.d("ClickEvent", "CardView clicked");
-                replceFragment(new product1info());
-//           startActivity(intent);
-            }
-        });
-        textView= findViewById(R.id.protext1);
-        imageView=findViewById(R.id.imageView);
-
-        Intent intent= getIntent();
-        textView.setText(intent.getStringExtra("name"));
-        imageView.setImageResource(intent.getIntExtra("image",0));
-
-
-
-
-        //public View onCreate(@NonNull LayoutInflater inflater, ViewGroup container,
-                // Bundle savedInstanceState){
-
-
-    }
-
-    private void replceFragment(Fragment fragment) {
-        Log.d("ClickEvent", "CardView clicked");
-        FragmentManager fragmentManager= getSupportFragmentManager();
-         FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-         fragmentTransaction.replace(R.id.cardscreen2,fragment);
-//         fragmentTransaction.addToBackStack(null);
-
-        binding.productscreen.setVisibility(View.GONE);
-        binding.cardscreen2.setVisibility(View.VISIBLE);
-        fragmentTransaction.commit();
     }
 
 
