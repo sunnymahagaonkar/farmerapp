@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.home3.databinding.ActivityMainBinding;
+import com.google.firebase.FirebaseApp;
 
 public class MainActivity extends AppCompatActivity {
 ActivityMainBinding binding;
@@ -28,5 +29,5 @@ ActivityMainBinding binding;
 
             }
         });
-    }
+        FirebaseApp.initializeApp(this);    }
 }

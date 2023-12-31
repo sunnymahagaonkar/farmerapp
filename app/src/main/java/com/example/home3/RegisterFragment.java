@@ -30,7 +30,7 @@ public class RegisterFragment extends Fragment {
     EditText Rname, Remail, Rpassword, Rphone;
     Button registerbtn2;
     TextView loginbtn2;
-    FirebaseAuth firebaseAuth;
+   // FirebaseAuth firebaseAuth;
     ProgressBar progressBar;
 
     FragmentDashfragBinding binding;
@@ -60,11 +60,12 @@ public class RegisterFragment extends Fragment {
         Rphone = view.findViewById(R.id.phone);
         registerbtn2 = view.findViewById(R.id.registerbtn2);
         loginbtn2 = view.findViewById(R.id.createtext);
-        firebaseAuth = FirebaseAuth.getInstance();
+       // firebaseAuth = FirebaseAuth.getInstance();
         progressBar = view.findViewById(R.id.progressBar);
-        if (firebaseAuth.getCurrentUser() != null) {
-           // startActivity(new Intent(getContext(), MainActivity2.class));
-        }
+
+//        if (firebaseAuth.getCurrentUser() != null) {
+//           // startActivity(new Intent(getContext(), MainActivity2.class));
+//        }
 
         registerbtn2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,35 +73,35 @@ public class RegisterFragment extends Fragment {
                  String email = Remail.getText().toString().trim();
                  String password = Rpassword.getText().toString().trim();
 
-                if (TextUtils.isEmpty(email)) {
-                    Remail.setError("email is required");
-                    return;
-                }
-                if (TextUtils.isEmpty(password)) {
-                    Rpassword.setError("password is required");
-                    return;
-                }
+//                if (TextUtils.isEmpty(email)) {
+//                    Remail.setError("email is required");
+//                    return;
+//                }
+//                if (TextUtils.isEmpty(password)) {
+//                    Rpassword.setError("password is required");
+//                    return;
+//                }
                 progressBar.setVisibility(View.VISIBLE);
-                firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getContext(), "User Created", Toast.LENGTH_SHORT).show();
-                           startActivity(new Intent(getContext(), MainActivity.class));
-                        } else {
-                            Toast.makeText(getContext(), "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
-                        }
+//                firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if (task.isSuccessful()) {
+//                            Toast.makeText(getContext(), "User Created", Toast.LENGTH_SHORT).show();
+//                           startActivity(new Intent(getContext(), MainActivity.class));
+//                        } else {
+//                            Toast.makeText(getContext(), "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+//                            progressBar.setVisibility(View.GONE);
+//                        }
+//
+//                    }
+//                });
 
-                    }
-                });
-
-            loginbtn2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    startActivity(new Intent(getContext(), LoginFragment.class));
-                }
-            });
+//            loginbtn2.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    startActivity(new Intent(getContext(), LoginFragment.class));
+//                }
+//            });
 
 
             }

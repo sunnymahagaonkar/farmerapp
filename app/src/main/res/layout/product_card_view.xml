@@ -1,4 +1,4 @@
-<LinearLayout android:layout_width="match_parent"
+<androidx.cardview.widget.CardView android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
@@ -60,14 +60,14 @@
             android:layout_marginTop="83dp"/>
 
         <TextView
-            android:id="@+id/location1"
+            android:id="@+id/course1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="69dp"
             android:text="Mumbai "
             android:textColor="@color/black"
-            android:textSize="15dp"
+            android:textSize="20dp"
             android:textStyle="bold"
           />
         <ImageView
@@ -91,4 +91,4 @@
 
     </LinearLayout>
 </LinearLayout>
-</LinearLayout>
+</androidx.cardview.widget.CardView>

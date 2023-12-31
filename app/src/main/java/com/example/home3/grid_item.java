@@ -1,58 +1,49 @@
 package com.example.home3;
 
-import android.content.Intent;
+
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
+import android.widget.ArrayAdapter;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
+import androidx.recyclerview.widget.RecyclerView;
 import com.example.home3.Adapters.ProductListAdapter;
-import com.example.home3.databinding.ActivityGridItemBinding;
-
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
-import java.util.List;
 
 public class grid_item extends AppCompatActivity {
-ActivityGridItemBinding binding;
-   TextView textView;
-   ImageView imageView;
-
-
-   List<String> productList_ = new ArrayList<>();
-
+    //ActivityGridItemBinding binding;
+    RecyclerView recyclerView;
+    DatabaseReference databaseReference;
+    ProductListAdapter productListAdapter;
+    //ArrayList<String> productList_ = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityGridItemBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        productList_.add("kajdhf");
-        productList_.add("jhdf");
-        productList_.add("kajdhf");
-        productList_.add("jhdf");
-        productList_.add("kajdhf");
-        productList_.add("jhdf");
-        productList_.add("kajdhf");
-        productList_.add("jhdf");
-        productList_.add("kajdhf");
-        productList_.add("jhdf");
-        productList_.add("kajdhf");
-        productList_.add("jhdf");
+        //binding = ActivityGridItemBinding.inflate(getLayoutInflater());
+        setContentView(R.layout.activity_grid_item);
+        //ArrayAdapter<String> myarrayAdapter = new ArrayAdapter<>(grid_item.this, android.R.layout.simple_list_item_1);
+        recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        LinearLayoutManager layoutManager
-                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        ProductListAdapter productListAdapter = new ProductListAdapter(productList_);
-        binding.productList.setAdapter(productListAdapter);
-        binding.productList.setLayoutManager(layoutManager);
-
+        FirebaseRecyclerOptions<ProductDataModel> options =
+                new FirebaseRecyclerOptions.Builder<ProductDataModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("students"), ProductDataModel.class)
+                        .build();
+        productListAdapter= new ProductListAdapter(options);
+        recyclerView.setAdapter(productListAdapter);
     }
 
-
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        productListAdapter.startListening();
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        productListAdapter.stopListening();
+    }
 }

@@ -1,53 +1,65 @@
 package com.example.home3.Adapters;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.home3.databinding.ProductCardViewBinding;
+import com.example.home3.ProductDataModel;
+import com.example.home3.R;
+//import com.example.home3.databinding.ProductCardViewBinding;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-import java.util.List;
+public class ProductListAdapter extends FirebaseRecyclerAdapter<ProductDataModel,ProductListAdapter.myviewholder> {
 
-public class ProductListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<String> productList_;
-
-    public ProductListAdapter(List<String> productList) {
-        productList_ = productList;
+    public ProductListAdapter(FirebaseRecyclerOptions<ProductDataModel> options) {
+        super(options);
     }
+
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        ProductCardViewBinding binding = ProductCardViewBinding.inflate(inflater);
+    public myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//        View view=
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_card_view, parent, false);
+        //ProductCardViewBinding binding = ProductCardViewBinding.inflate(inflater);
 
-        return new CardViewHolder(binding);
+        return new myviewholder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        CardViewHolder viewHolder = (CardViewHolder) holder;
-        viewHolder.binding_.productName.setText(getItem(position));
+    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull ProductDataModel productDataModel) {
+        holder.name.setText(productDataModel.getName());
+        //holder.price.setText(String.valueOf(productDataModel.getPrice()));
+        holder.course.setText(productDataModel.getCourse());
+
+
     }
 
-    private String getItem(int position) {
-       return productList_.get(position);
+    public void startListening() {
     }
 
-
-    @Override
-    public int getItemCount() {
-        return productList_.size();
+    public void stopListening() {
     }
 
-    private class CardViewHolder extends RecyclerView.ViewHolder {
-        ProductCardViewBinding binding_;
-        public CardViewHolder(ProductCardViewBinding binding) {
-            super(binding.getRoot());
-            binding_ = binding;
+    public class myviewholder extends RecyclerView.ViewHolder {
+
+        ImageView img;
+        TextView name, price, course;
+
+        public myviewholder(@NonNull View itemView) {
+            super(itemView);
+            //img = (ImageView) itemView.findViewById(R.id.imageView);
+            name = (TextView) itemView.findViewById(R.id.product_name);
+            //price = (TextView) itemView.findViewById(R.id.price1);
+            course = (TextView) itemView.findViewById(R.id.course1);
+
         }
     }
 }

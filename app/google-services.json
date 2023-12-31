@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "770246145216",
+    "firebase_url": "https://fir-con-8c548-default-rtdb.firebaseio.com/",
+    "project_id": "fir-con-8c548",
+    "storage_bucket": "fir-con-8c548.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770246145216:android:2fba026768d98aaf7de925",
+        "android_client_info": {
+          "package_name": "com.example.home3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDu33ROWzJ95r9igLwACYw7gNZbouJVpnM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
