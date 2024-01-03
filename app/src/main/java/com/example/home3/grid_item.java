@@ -32,8 +32,10 @@ public class grid_item extends AppCompatActivity {
                 new FirebaseRecyclerOptions.Builder<ProductDataModel>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("students"), ProductDataModel.class)
                         .build();
+
         productListAdapter= new ProductListAdapter(options);
         recyclerView.setAdapter(productListAdapter);
+
     }
 
     @Override

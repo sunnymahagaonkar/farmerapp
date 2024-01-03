@@ -15,7 +15,7 @@ ActivityMainBinding binding;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-
+        FirebaseApp.initializeApp(this);
         setContentView(binding.getRoot());
         binding.btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,5 +29,6 @@ ActivityMainBinding binding;
 
             }
         });
-        FirebaseApp.initializeApp(this);    }
+
+        }
 }

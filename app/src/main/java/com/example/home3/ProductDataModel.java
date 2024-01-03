@@ -1,11 +1,11 @@
     package com.example.home3;
 
     public class ProductDataModel {
-         String name;
+        private String name;
         //String images;
          //int price;
          //String location;
-        String course;
+        private String course;
 
         public ProductDataModel(){
 

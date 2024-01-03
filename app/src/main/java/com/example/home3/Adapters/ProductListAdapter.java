@@ -56,7 +56,7 @@ public class ProductListAdapter extends FirebaseRecyclerAdapter<ProductDataModel
         public myviewholder(@NonNull View itemView) {
             super(itemView);
             //img = (ImageView) itemView.findViewById(R.id.imageView);
-            name = (TextView) itemView.findViewById(R.id.product_name);
+           name = (TextView) itemView.findViewById(R.id.product_name);
             //price = (TextView) itemView.findViewById(R.id.price1);
             course = (TextView) itemView.findViewById(R.id.course1);
 
