@@ -1,17 +1,12 @@
 package com.example.home3;
 
-public class ProductDataModel {
-    String name, course, price, location;
+public class DataHolder {
+    String name,course,location;
 
-    ProductDataModel() {
-
-    }
-
-    public ProductDataModel(String name, String course, String location) {
+    public DataHolder(String name, String course, String location) {
         this.name = name;
-        //this.price = price;
-        this.location = location;
         this.course = course;
+        this.location = location;
     }
 
     public String getName() {
@@ -37,13 +32,4 @@ public class ProductDataModel {
     public void setLocation(String location) {
         this.location = location;
     }
-//
-//    public String getPurl() {
-//        return purl;
-//    }
-//
-//    public void setPurl(String purl) {
-//        this.purl = purl;
-//    }
-
 }
